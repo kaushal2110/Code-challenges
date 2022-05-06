@@ -94,3 +94,21 @@ var maxSequence = function(arr){
   }
   return actual
 }
+
+
+// find consecutive fib numbers whose product == prod
+function productFib(prod){
+
+  let arr = [0, 1]
+  let sum
+  let result = 0
+  while(result < prod){
+    sum = arr[arr.length-1]+arr[arr.length-2]
+    arr.push(sum)
+    result = arr[arr.length-1] * arr[arr.length-2]
+  }
+  if(result == prod){
+    return[arr[arr.length-2], arr[arr.length-1], true]
+  }
+  return[arr[arr.length-2], arr[arr.length-1],false]
+}

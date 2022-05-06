@@ -73,3 +73,24 @@ function breakCamelCase(string){
 function solution(string) {
   return(string.replace(/([A-Z])/g, ' $1'));
 }
+
+// max sum of contiguous subarray
+var maxSequence = function(arr){
+  let sum = 0
+  if (arr == [] || sum < 0){
+    return 0
+  }
+  let current, actual = 0
+  for(i = 0; i < arr.length; i++){
+    sum += arr[i]
+
+    if(sum < 0){
+      sum = 0
+    }
+    current = sum
+    if(current > actual){
+      actual = current
+    }
+  }
+  return actual
+}

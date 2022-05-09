@@ -112,3 +112,32 @@ function productFib(prod){
   }
   return[arr[arr.length-2], arr[arr.length-1],false]
 }
+
+
+// reverse or rotate. reverse if sum of the cube of digits in chunk of size(sz) % 2. rotate the first digit if not
+function revrot(str, sz) {
+    // your code
+  if(sz > 0 && str !== '' && sz < str.length){
+  let arr = []
+  let finalStr = ''
+  let i = 0
+  while(i < str.length){
+    arr.push(str.slice(i, i+sz))
+    i += sz
+    }
+   arr = arr.filter(str => str.length == sz)
+    for(num of arr){
+      newNum = num.split('').map(x => Number(x))
+      cubeSum = newNum.map(x => Math.pow(x, 3)).reduce((acc,c) => acc + c, 0)
+      if(cubeSum % 2 == 0){
+        newStr = newNum.reverse().join('')
+        finalStr += newStr
+      } else {
+      newStr = newNum.slice(1).join('') + newNum.slice(0,1)
+      finalStr += newStr
+        }
+    }
+    return finalStr
+  }
+  return ''
+}

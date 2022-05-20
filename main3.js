@@ -18,3 +18,16 @@ function anagrams(word, words) {
   }
   return finalArr
 }
+
+// reverse words in string where word.length >= 5
+function spinWords(string){
+  string = string.split(' ')
+  let arr = string.map(word => {
+    if(word.length >= 5){
+      return word.split('').reverse().join('')
+    } else {
+      return word
+    }
+  })
+  return arr.join(' ')
+}

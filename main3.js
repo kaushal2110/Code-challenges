@@ -31,3 +31,18 @@ function spinWords(string){
   })
   return arr.join(' ')
 }
+
+
+//return str in arr of 2 characters. add '_' if str length is odd
+function solution(str){
+   if(str.length % 2 == 1){
+     str += '_'
+   }
+  let arr = []
+  let count = 0
+  while(count < str.length){
+    arr.push(str.slice(count,count+2))
+    count += 2
+  }
+  return arr
+}
